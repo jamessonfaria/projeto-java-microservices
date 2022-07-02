@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: ms-cloud-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://${KEYCLOAK_SERVER}:${KEYCLOAK_PORT}/realms/ms-course-realm"
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://cursoms-eureka-user:ue-serrr-csskoameuu@${EUREKA_SERVER}:8761/eureka
+  instance:
+    prefer-ip-address: true
